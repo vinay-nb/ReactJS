@@ -1,27 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "../node_modules/font-awesome/css/font-awesome.min.css";
 
-const headingOne = React.createElement(
-  "h1",
-  { className: "title" },
-  "Namaste React"
+const Logo = <i className="fa fa-rss icon-blog"></i>;
+
+const MainHeader = () => (
+  <div className="header-container">
+    {Logo}
+    <input type="text" placeholder="search" className="input-search" />
+    <i className="fa fa-regular fa-user icon-user"></i>
+  </div>
 );
 
-const headingTwo = React.createElement(
-  "h3",
-  { className: "title2" },
-  "Lesson Inception"
-);
-
-const div1 = React.createElement("div", { className: "head1" }, [headingOne]);
-
-const div2 = React.createElement("div", { className: "head1" }, [headingTwo]);
-
-const container = React.createElement("div", { className: "container" }, [
-  div1,
-  div2,
-]);
+const Header = () => {
+  return (
+    <div className="title">
+      <MainHeader/>
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(container);
+root.render(<Header />);
