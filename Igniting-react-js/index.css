@@ -33,3 +33,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.card-shimmer {
+    height: 50px;
+    width: 50px;
+    background-color: #f1f5f9;
+}
