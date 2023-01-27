@@ -34,8 +34,14 @@
     flex-wrap: wrap;
 }
 
-.card-shimmer {
-    height: 50px;
-    width: 50px;
+.shimmers {
+    height: 200px;
+    width: 200px;
     background-color: #f1f5f9;
+    margin: 20px;
+    display: inline-block;
+}
+
+.menu-desc {
+    display: flex;
 }
