@@ -66,5 +66,7 @@ But with the key concept react checks the exisisting dom tree with new changes t
 
 **Config driven ui -** A ui design which supports multiple configuration as in If I have to display what are the offers in swiggy in different locations.
 
+**Why super is used inside constructor in class based component?** - ES6 class constructors MUST call super if they are subclasses.
+
 
 
