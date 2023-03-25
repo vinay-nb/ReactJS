@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,17 +10,25 @@ import Profile from "./components/ProfileClass";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantsMenu from "./components/RestaurantsMenu";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 
 // lazy import using lazy method which comes from the React as named import.
 // upon on demand loading react tries to render component which is not present, which suspends the operation.
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Geek",
+    email: "geek@gmail.com",
+  });
+
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider value={{ user: user }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 };
