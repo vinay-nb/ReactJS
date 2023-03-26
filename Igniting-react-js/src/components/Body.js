@@ -1,4 +1,3 @@
-import { restaurantList } from "../constants";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";

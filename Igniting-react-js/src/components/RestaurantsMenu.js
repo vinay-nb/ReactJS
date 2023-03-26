@@ -16,18 +16,37 @@ const RestaurantsMenu = () => {
       <div className="menu-desc">
         <div>
           <h1> Restaurant id: {id}</h1>
-          <img src={IMG_CDN_URL + restaurant.cloudinaryImageId} />
-          <h5>{restaurant.area}</h5>
-          <h5>{restaurant.city}</h5>
-          <h5>{restaurant.avgRating} stars</h5>
-          <h5>{restaurant.costForTwoMsg}</h5>
+          <img
+            src={
+              IMG_CDN_URL +
+              restaurant?.cards[0]?.card?.card?.info?.cloudinaryImageId
+            }
+          />
+          <h5>Area: {restaurant?.cards[0]?.card?.card?.info?.areaName} </h5>
+          <h5>City: {restaurant?.cards[0]?.card?.card?.info?.city}</h5>
+          <h5>Ratings: {restaurant?.cards[0]?.card?.card?.info?.avgRating}</h5>
+          <h5>
+            Cost for 2:{" "}
+            {restaurant?.cards[0]?.card?.card?.info?.costForTwoMessage}
+          </h5>
         </div>
         <div>
           <h3>Menu</h3>
           <ul>
-            {Object.values(restaurant?.menu?.items).map((items) => (
-              <li key={items.id}>{items.name}</li>
-            ))}
+            {console.log(
+              "menu details",
+              restaurant.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+                ?.card?.card?.itemCards[1]?.card?.info?.name
+            )}
+            {console.log(
+              "details",
+              restaurant.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+                ?.card?.card
+            )}
+            {Object.values(
+              restaurant.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+                ?.card?.card?.itemCards[1].card?.info.name
+            )}
           </ul>
         </div>
       </div>
