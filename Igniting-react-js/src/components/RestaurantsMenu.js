@@ -1,11 +1,22 @@
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
+import { addItem, removeItem } from "../utils/cartSlice";
 import useRestaurant from "../utils/useRestaurant";
 import Shimmer from "./Shimmer";
 
 const RestaurantsMenu = () => {
   const { id } = useParams();
   const restaurant = useRestaurant(id);
+  const dispatch = useDispatch();
+
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
+
+  const removeFoodItem = (item) => {
+    dispatch(removeItem(item));
+  };
 
   if (!restaurant) {
     return <Shimmer />;
@@ -34,19 +45,26 @@ const RestaurantsMenu = () => {
           <h3>Menu</h3>
           <ul>
             {console.log(
-              "menu details",
-              restaurant.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                ?.card?.card?.itemCards[1]?.card?.info?.name
-            )}
-            {console.log(
               "details",
               restaurant.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                ?.card?.card
+                ?.card?.card.categories[0].itemCards[0].card.info.name
             )}
             {Object.values(
               restaurant.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                ?.card?.card?.itemCards[1].card?.info.name
+                ?.card?.card.categories[0].itemCards[0].card.info.name
             )}
+            <button
+              className="p-2 m-2 bg-green-400"
+              onClick={() => addFoodItem("grapes")}
+            >
+              Add to Cart
+            </button>
+            <button
+              className="p-2 m-2 bg-green-400"
+              onClick={() => removeFoodItem("grapes")}
+            >
+              Remove from Cart
+            </button>
           </ul>
         </div>
       </div>
