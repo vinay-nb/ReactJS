@@ -12,6 +12,7 @@ const authenticateUser = () => {
 const Title = () => (
   <a href="/">
     <img
+      data-testid="logo"
       className="h-28 p-2"
       alt="logo"
       src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
@@ -44,7 +45,7 @@ const Header = () => {
           <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li className="px-2">
+          <li className="px-2" data-testid="cart-items">
             <Link to="/cart">Cart {cartItems.length}</Link>
           </li>
           <li className="px-2">
