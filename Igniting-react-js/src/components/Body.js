@@ -47,6 +47,7 @@ const Body = () => {
           }}
         />
         <button
+          data-testid="search-btn"
           className="bg-purple-300 p-2 m-2 text-white rounded-md hover:bg-purple-500"
           onClick={() => {
             //need to filter the data
@@ -58,7 +59,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap justify-between p-2 m-2">
+      <div className="flex flex-wrap justify-between p-2 m-2" data-testid="res-list">
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link
